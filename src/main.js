@@ -1,13 +1,13 @@
 try {
 
-  var { latitude, longitude } = [ 0, 0 ];
-  var altitude = 0;
+  var latitude, longitude, altitude = undefined;
 
   function UpdateLocation() {
     navigator.geolocation.getCurrentPosition( async position => {
 
-      latitude, longitude = position.coords.latitude, position.coords.longitude;
-      altitude = position.coords.altitude;
+      latitude = await position.coords.latitude;
+      longitude = await position.coords.longitude;
+      altitude = await position.coords.altitude;
 
       document.getElementById('debug-info').innerHTML = `
       <h1>Longitude: ${longitude}, Latitude: ${latitude}</h1>
