@@ -1,5 +1,8 @@
 try {
 
+  var { latitude, longitude } = [ 0, 0 ];
+  var altitude = 0;
+
   document.getElementById('copy-location').onclick = () => {
     navigator.clipboard.writeText(`${latitude},${longitude},${altitude}`);
     alert('Location copied to clipboard!');
@@ -12,12 +15,13 @@ try {
 
   navigator.geolocation.getCurrentPosition( async position => {
 
-    const altitude = await position.coords.altitude;
+    altitude = await position.coords.altitude;
 
     document.getElementById('debug-info').innerHTML = `
       <h1>Altitude: ${altitude}</h1>`;
 
-    const { latitude, longitude } = await position.coords;
+    latitude = await position.coords.latitude;
+    longitude = await position.coords.longitude;
 
     const html = `<iframe width="700" height="300" src="https://maps.google.com/maps?q=${latitude},${longitude}&amp;z=15&amp;output=embed"></iframe>`;
     console.log('HTML:', html);
