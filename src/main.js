@@ -6,7 +6,7 @@ try {
   function UpdateLocation() {
     navigator.geolocation.getCurrentPosition( async position => {
 
-      latitude, longitude = position.coords;
+      latitude, longitude = position.coords.latitude, position.coords.longitude;
       altitude = position.coords.altitude;
 
       document.getElementById('debug-info').innerHTML = `
