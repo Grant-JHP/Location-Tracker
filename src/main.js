@@ -1,5 +1,10 @@
 try {
 
+  document.getElementById('copy-location').onclick = () => {
+    navigator.clipboard.writeText(`${latitude},${longitude},${altitude}`);
+    alert('Location copied to clipboard!');
+  }
+
   const rooms = {
     'A1-01': [ 100, 256 ],
     'B3-05': [ 200, 512 ]
