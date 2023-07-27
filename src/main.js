@@ -12,7 +12,7 @@ try {
       altitude = await position.coords.altitude;
 
       document.getElementById('debug-info').innerHTML = `
-      <h1>Longitude: ${longitude}, Latitude: ${latitude}</h1>
+      <h1>Latitude: ${latitude}, Longitude: ${longitude}</h1>
       <h1>Altitude: ${altitude}</h1>`;
 
       document.getElementById('map').innerHTML =
