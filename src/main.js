@@ -1,3 +1,5 @@
+// Copyright Grant Phillips 2023 (C)
+
 try {
 
   var latitude, longitude, altitude = undefined;
