@@ -1,6 +1,17 @@
 try {
 
+  const rooms = {
+    'A1-01': [ 100, 256 ],
+    'B3-05': [ 200, 512 ]
+  }
+
   navigator.geolocation.getCurrentPosition( async position => {
+
+    const altitude = await position.coords.altitude;
+
+    document.getElementById('debug-info').innerHTML = `
+      <h1>Altitude: ${altitude}</h1>`;
+
     const { latitude, longitude } = await position.coords;
 
     const html = `<iframe width="700" height="300" src="https://maps.google.com/maps?q=${latitude},${longitude}&amp;z=15&amp;output=embed"></iframe>`;
